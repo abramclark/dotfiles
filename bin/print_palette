@@ -1,0 +1,8 @@
+#!/bin/bash
+i=0
+while [ $i -lt 256 ]; do
+    printf "\033[38;05;${i}m%0*d " 3 $i
+    if ! (($i % 20)); then echo; fi
+    let i=i+1
+done
+echo
