@@ -1,0 +1,3 @@
+#!/bin/sh
+cd
+git config status.showuntrackedfiles no
