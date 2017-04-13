@@ -6,7 +6,8 @@ alias iv=gliv
 # alias apti='sudo apt-get install'
 # alias aptp='sudo apt-get remove --purge'
 alias mplayercam='mplayer -vf screenshot tv://'
-alias grepi='grep -i'
+alias gi='grep -iP'
+alias gr='grep -P'
 alias greph='grep -v /\\.'
 alias lsf='find $(pwd) -type f'
 alias today='date +%Y-%m-%d'
@@ -47,3 +48,37 @@ alias top1='top -b -n 1'
 
 alias master='git checkout master'
 alias nh='bin/server_examples.py'
+
+alias ..='cd ../'
+alias ...='cd ../../'
+alias ....='cd ../../../'
+alias .....='cd ../../../../'
+alias ff='find|grep -i'
+
+# git aliases
+alias g='git'
+# git root dir
+# pre-submit checks
+alias gpre="st;git diff|grep -n 'print\|!!\|bugbug\|TODO'"
+alias gm='git checkout master'
+alias gstage='git checkout staging'
+alias gc='git commit'
+alias gs='git status'
+alias gpp='git pull && (cd `groot`;git submodule update) && git push'
+alias gcd='cd $(groot)' # top level of current repo
+# alias gbranch='git status|grep branch|awk '"'"'{print $4}'"'"
+# alias gmerge='~/bin/gitmerge.sh master `gbranch`'
+
+# diagnostics
+alias ping8='ping 8.8.8.8'
+alias myip="ifconfig | grep inet.addr | grep -v 127.0.0.1 | awk -F: '{print $2}' | awk '{print $1}'"
+alias mygate="route -n | grep ^0.0.0.0 | awk '{print $2}'"
+alias pinggate='ping `mygate`'
+
+# basic linux utils
+#alias m='less -R'
+#alias xx='chmod 755'
+#alias xr='chmod 644'
+#alias open='xdg-open'
+#alias gi='grep -i'
+#alias t='type'
