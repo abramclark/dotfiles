@@ -1,5 +1,9 @@
 #!/bin/sh
 cd
+
+git clone git@github.com:abramclark/dotfiles.git
+cd dotfiles; cp -r $(dir -A) ..;  cd ..
+rm -rf dotfiles
 git config status.showuntrackedfiles no
 
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
