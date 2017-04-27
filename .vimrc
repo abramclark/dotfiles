@@ -7,7 +7,7 @@ colorscheme elflord
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set formatoptions=q2
-set guifont=Menlo\ Regular:h14
+set guifont=Menlo\ Regular:h15
 set ai " for retaining indent after newline in insert mode
 set nosmarttab " change indents from literal tabs to a bunch of spaces (huh?)
 set expandtab " make indents spaces not tabs
@@ -45,7 +45,7 @@ no <C-n> :bn<CR>
 inoremap <C-b> <Left>
 inoremap <C-f> <Right>
 no <C-h> :noh<CR>
-nmap <C-k> :b#<bar>bd#<CR>
+nmap <C-k> :bd<CR>
 " ctrl keys in normal mode left: j, q, ', ", .?
 
 no <Esc>1 :bf<CR>
@@ -72,6 +72,8 @@ map <D-6> 6gt
 map <D-7> 7gt
 map <D-8> 8gt
 map <D-9> 9gt
+
+command! B buffers
 
 "" my nifty macros
 " copy number to below, increment. lh at end fixes spurious cursor down motion

@@ -1,7 +1,4 @@
 #! /bin/bash
-# Usage: add the following line to your ~/.bashrc
-# source ~/src/newhive/newduke/bin/git_grep.sh
-
 filter_broken="/fonts/|/curl|google_closure.js|/d3/|codemirror.js|/codemirror/|/browser/jquery|mobile/[pt]|mobile/app/[^w]|zepto-"
 
 function open_file {
