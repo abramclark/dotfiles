@@ -30,10 +30,6 @@ set noswapfile
 set hidden " disable error on closing unwritten buffer
 set ruler " always show line,column and line/line-total
 set iskeyword=@,48-57,_,192-255 " make dot word boundary!
-set noautoindent
-set nocindent
-set nosmartindent
-set indentexpr=
 set gdefault " search and replace all matches by default
 set nrformats=hex " who uses octal?? 07 should increment to 08
 
@@ -62,9 +58,8 @@ no <Esc>0 :blast<CR>
 map <C-tab> :tabnext<CR>
 map <C-S-tab> :tabprevious<CR>
 map <C-S-t> :tabnew<CR>
-"map <C-w> :tabclose<CR> " can't remap window key!
 map <D-1> 1gt
-map <D-1> 2gt
+map <D-2> 2gt
 map <D-3> 3gt
 map <D-4> 4gt
 map <D-5> 5gt
@@ -73,8 +68,12 @@ map <D-7> 7gt
 map <D-8> 8gt
 map <D-9> 9gt
 
+" close current buffer without touching windows
+nnoremap <silent> <Leader>bd :Bclose<CR>
+" copy selected lines with lines joined
+vnoremap <leader>y "+y:let @+=substitute(@+, '\n *', ' ', 'g')<CR> 
+
 command! B buffers
 
-"" my nifty macros
-" copy number to below, increment. lh at end fixes spurious cursor down motion
+" copy number to number below then increment. lh at end fixes spurious cursor down motion
 let @i = "\"zyej?[^0-9]\<CR>lde\"zP\<C-a>?[^0-9]\<CR>l:noh\<CR>lh"
