@@ -2,4 +2,8 @@
 # hack for handling file:line-number args
 args=$(echo $@ | perl -pe 's/(.*?):(\d+)+:?$/+$2 $1/')
 set -- $args
-gvim --remote-tab $@
+if [[ $OSTYPE == darwin* || $DISPLAY ]]; then
+    gvim --remote-tab $@
+else
+    vim $@
+fi
