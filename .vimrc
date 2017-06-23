@@ -1,14 +1,14 @@
-source ~/.vim/vundle.vim " bundle / package management
+source ~/.vim/plug.vim " package management
 
 syntax on
-filetype plugin indent on
+filetype plugin indent off
 colorscheme elflord
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set formatoptions=q2
 set guifont=Menlo\ Regular:h15
-set ai " for retaining indent after newline in insert mode
+set autoindent
 set nosmarttab " change indents from literal tabs to a bunch of spaces (huh?)
 set expandtab " make indents spaces not tabs
 set shiftwidth=4 " how many spaces make up a smarttab
@@ -29,44 +29,49 @@ set nowritebackup
 set noswapfile
 set hidden " disable error on closing unwritten buffer
 set ruler " always show line,column and line/line-total
+set iskeyword=@,48-57,_,192-255 " make dot word boundary!
+set gdefault " search and replace all matches by default
+set nrformats=hex " who uses octal?? 07 should increment to 08
 
-"" my key remaps 
-no <C-s> :w<CR>
-no <C-x> \r<CR>\e
-no <C-p> :bp<CR>
-no <C-n> :bn<CR>
+noremap <C-s> :w<CR>
+noremap <C-x> \r<CR>\e
+noremap <C-p> :bp<CR>
+noremap <C-n> :bn<CR>
+noremap <C-h> :noh<CR>
 inoremap <C-b> <Left>
 inoremap <C-f> <Right>
-no <C-h> :noh<CR>
-nmap <C-k> :bd<CR>
-" ctrl keys in normal mode left: j, q, ', ", .?
+nnoremap <C-k> :bd<CR>
+" close current buffer without touching windows
+nnoremap <silent> <Leader>bd :Bclose<CR>
+" copy selected lines with lines joined
+vnoremap <leader>y "+y:let @+=substitute(@+, '^ *\| *$', '', 'm')<CR>:let @+=substitute(@+, '\n', ' ', 'g')<CR>
+" ctrl keys left in normal mode: j, q, ', ", .?
 
-no <Esc>1 :bf<CR>
-no <Esc>2 :bf<CR>:bn1<CR>
-no <Esc>3 :bf<CR>:bn2<CR>
-no <Esc>4 :bf<CR>:bn3<CR>
-no <Esc>5 :bf<CR>:bn4<CR>
-no <Esc>6 :bf<CR>:bn5<CR>
-no <Esc>7 :bf<CR>:bn6<CR>
-no <Esc>8 :bf<CR>:bn7<CR>
-no <Esc>9 :bf<CR>:bn8<CR>
-no <Esc>0 :blast<CR>
+noremap <Esc>1 :bf<CR>
+noremap <Esc>2 :bf<CR>:bn1<CR>
+noremap <Esc>3 :bf<CR>:bn2<CR>
+noremap <Esc>4 :bf<CR>:bn3<CR>
+noremap <Esc>5 :bf<CR>:bn4<CR>
+noremap <Esc>6 :bf<CR>:bn5<CR>
+noremap <Esc>7 :bf<CR>:bn6<CR>
+noremap <Esc>8 :bf<CR>:bn7<CR>
+noremap <Esc>9 :bf<CR>:bn8<CR>
+noremap <Esc>0 :blast<CR>
 
-map <C-tab> :tabnext<CR>
-map <C-S-tab> :tabprevious<CR>
-map <C-S-t> :tabnew<CR>
-"map <C-w> :tabclose<CR> " can't remap window key!
-map <D-1> 1gt
-map <D-2> 2gt
-map <D-3> 3gt
-map <D-4> 4gt
-map <D-5> 5gt
-map <D-6> 6gt
-map <D-7> 7gt
-map <D-8> 8gt
-map <D-9> 9gt
+noremap <C-tab> :tabnext<CR>
+noremap <C-S-tab> :tabprevious<CR>
+noremap <C-S-t> :tabnew<CR>
+noremap <D-1> 1gt
+noremap <D-2> 2gt
+noremap <D-3> 3gt
+noremap <D-4> 4gt
+noremap <D-5> 5gt
+noremap <D-6> 6gt
+noremap <D-7> 7gt
+noremap <D-8> 8gt
+noremap <D-9> 9gt
 
 command! B buffers
 
-"" my nifty macros
-let @i = '"zyljx"zP'
+" copy number to number below then increment. lh at end fixes spurious cursor down motion
+let @i = "\"zyej?[^0-9]\<CR>lde\"zP\<C-a>?[^0-9]\<CR>l:noh\<CR>lh"
