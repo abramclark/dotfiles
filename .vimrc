@@ -44,7 +44,7 @@ nnoremap <C-k> :bd<CR>
 " close current buffer without touching windows
 nnoremap <silent> <Leader>bd :Bclose<CR>
 " copy selected lines with lines joined
-vnoremap <leader>y "+y:let @+=substitute(@+, '^ *\| *$', '', 'm')<CR>:let @+=substitute(@+, '\n', ' ', 'g')<CR>
+vnoremap <leader>yl "+y:let @+=substitute(substitute(t, '\_s\_s\+', ' ', 'g'), '^\_s*\|\_s*$', '', 'g')<CR>
 " ctrl keys left in normal mode: j, q, ', ", .?
 
 noremap <Esc>1 :bf<CR>
@@ -58,6 +58,7 @@ noremap <Esc>8 :bf<CR>:bn7<CR>
 noremap <Esc>9 :bf<CR>:bn8<CR>
 noremap <Esc>0 :blast<CR>
 
+noremap <D-w> :bd<CR>
 noremap <C-tab> :tabnext<CR>
 noremap <C-S-tab> :tabprevious<CR>
 noremap <C-S-t> :tabnew<CR>
