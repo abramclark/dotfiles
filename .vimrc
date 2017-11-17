@@ -32,7 +32,8 @@ set ruler " always show line,column and line/line-total
 set iskeyword=@,48-57,_,192-255 " make dot word boundary!
 set gdefault " search and replace all matches by default
 set nrformats=hex " who uses octal?? 07 should increment to 08
-set guioptions-=mT
+set guioptions-=m
+set guioptions-=T
 
 let mapleader = ","
 
