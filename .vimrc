@@ -32,6 +32,8 @@ set ruler " always show line,column and line/line-total
 set iskeyword=@,48-57,_,192-255 " make dot word boundary!
 set gdefault " search and replace all matches by default
 set nrformats=hex " who uses octal?? 07 should increment to 08
+set guioptions-=m
+set guioptions-=T
 
 let mapleader = ","
 
@@ -78,7 +80,13 @@ noremap <D-9> 9gt
 command! B buffers
 
 " copy number to number below then increment. lh at end fixes spurious cursor down motion
+let @i = "\"zyej?[^0-9]\<CR>lde\"zP\<C-a>?[^0-9]\<CR>l:noh\<CR>lh"
 let @i = "\"zywj?[^0-9]\<CR>ldw\"zP\<C-a>?[^0-9]\<CR>l:noh\<CR>lh"
 
 " extension settings
 let g:tagbar_compact = 1
+
+" local overwrites
+if !empty(glob("~/.vim/local.vim"))
+    source ~/.vim/local.vim
+endif
