@@ -34,11 +34,14 @@ set gdefault " search and replace all matches by default
 set nrformats=hex " who uses octal?? 07 should increment to 08
 set guioptions-=mT
 
+let mapleader = ","
+
 noremap <C-s> :w<CR>
 noremap <C-x> \r<CR>\e
 noremap <C-p> :bp<CR>
 noremap <C-n> :bn<CR>
 noremap <C-h> :noh<CR>
+noremap <F8> :TagbarToggle<CR>
 inoremap <C-b> <Left>
 inoremap <C-f> <Right>
 nnoremap <C-k> :bd<CR>
@@ -62,7 +65,7 @@ noremap <Esc>0 :blast<CR>
 noremap <D-w> :bd<CR>
 noremap <C-tab> :tabnext<CR>
 noremap <C-S-tab> :tabprevious<CR>
-noremap <C-S-t> :tabnew<CR>
+"noremap <C-S-t> :tabnew<CR> " -S is ignored in at least MacVim, killing <C-t>
 noremap <D-1> 1gt
 noremap <D-2> 2gt
 noremap <D-3> 3gt
@@ -77,7 +80,12 @@ command! B buffers
 
 " copy number to number below then increment. lh at end fixes spurious cursor down motion
 let @i = "\"zyej?[^0-9]\<CR>lde\"zP\<C-a>?[^0-9]\<CR>l:noh\<CR>lh"
+let @i = "\"zywj?[^0-9]\<CR>ldw\"zP\<C-a>?[^0-9]\<CR>l:noh\<CR>lh"
 
-if !empty(glob("~/.vim/font.local.vim"))
-    source ~/.vim/font.local.vim
+" extension settings
+let g:tagbar_compact = 1
+
+" local overwrites
+if !empty(glob("~/.vim/local.vim"))
+    source ~/.vim/local.vim
 endif
