@@ -32,6 +32,7 @@ set ruler " always show line,column and line/line-total
 set iskeyword=@,48-57,_,192-255 " make dot word boundary!
 set gdefault " search and replace all matches by default
 set nrformats=hex " who uses octal?? 07 should increment to 08
+set guioptions-=mT
 
 noremap <C-s> :w<CR>
 noremap <C-x> \r<CR>\e
@@ -76,3 +77,7 @@ command! B buffers
 
 " copy number to number below then increment. lh at end fixes spurious cursor down motion
 let @i = "\"zyej?[^0-9]\<CR>lde\"zP\<C-a>?[^0-9]\<CR>l:noh\<CR>lh"
+
+if !empty(glob("~/.vim/font.local.vim"))
+    source ~/.vim/font.local.vim
+endif
