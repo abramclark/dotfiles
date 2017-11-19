@@ -1,14 +1,7 @@
 #!/bin/sh
 
 # git root dir
-function groot() {(
-  gitroot=`git rev-parse --show-toplevel 2> /dev/null`
-  if [ -z $gitroot ]; then
-    echo $NEWHIVE_HOME
-  else
-    echo $gitroot
-  fi;
-)}
+alias groot='git rev-parse --show-toplevel'
 
 git_branch() {
     b=$(git symbolic-ref HEAD 2> /dev/null);

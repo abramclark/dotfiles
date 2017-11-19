@@ -32,19 +32,24 @@ set ruler " always show line,column and line/line-total
 set iskeyword=@,48-57,_,192-255 " make dot word boundary!
 set gdefault " search and replace all matches by default
 set nrformats=hex " who uses octal?? 07 should increment to 08
+set guioptions-=m
+set guioptions-=T
+
+let mapleader = ","
 
 noremap <C-s> :w<CR>
 noremap <C-x> \r<CR>\e
 noremap <C-p> :bp<CR>
 noremap <C-n> :bn<CR>
 noremap <C-h> :noh<CR>
+noremap <F8> :TagbarToggle<CR>
 inoremap <C-b> <Left>
 inoremap <C-f> <Right>
 nnoremap <C-k> :bd<CR>
 " close current buffer without touching windows
 nnoremap <silent> <Leader>bd :Bclose<CR>
 " copy selected lines with lines joined
-vnoremap <leader>y "+y:let @+=substitute(@+, '^ *\| *$', '', 'm')<CR>:let @+=substitute(@+, '\n', ' ', 'g')<CR>
+vnoremap <leader>yl "+y:let @+=substitute(substitute(t, '\_s\_s\+', ' ', 'g'), '^\_s*\|\_s*$', '', 'g')<CR>
 " ctrl keys left in normal mode: j, q, ', ", .?
 
 noremap <Esc>1 :bf<CR>
@@ -58,9 +63,10 @@ noremap <Esc>8 :bf<CR>:bn7<CR>
 noremap <Esc>9 :bf<CR>:bn8<CR>
 noremap <Esc>0 :blast<CR>
 
+noremap <D-w> :bd<CR>
 noremap <C-tab> :tabnext<CR>
 noremap <C-S-tab> :tabprevious<CR>
-noremap <C-S-t> :tabnew<CR>
+"noremap <C-S-t> :tabnew<CR> " -S is ignored in at least MacVim, killing <C-t>
 noremap <D-1> 1gt
 noremap <D-2> 2gt
 noremap <D-3> 3gt
@@ -75,3 +81,12 @@ command! B buffers
 
 " copy number to number below then increment. lh at end fixes spurious cursor down motion
 let @i = "\"zyej?[^0-9]\<CR>lde\"zP\<C-a>?[^0-9]\<CR>l:noh\<CR>lh"
+let @i = "\"zywj?[^0-9]\<CR>ldw\"zP\<C-a>?[^0-9]\<CR>l:noh\<CR>lh"
+
+" extension settings
+let g:tagbar_compact = 1
+
+" local overwrites
+if !empty(glob("~/.vim/local.vim"))
+    source ~/.vim/local.vim
+endif
