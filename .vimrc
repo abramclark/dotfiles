@@ -51,6 +51,8 @@ nnoremap <silent> <Leader>bd :Bclose<CR>
 " copy selected lines with lines joined
 vnoremap <leader>yl "+y:let @+=substitute(substitute(t, '\_s\_s\+', ' ', 'g'), '^\_s*\|\_s*$', '', 'g')<CR>
 " ctrl keys left in normal mode: j, q, ', ", .?
+vnoremap <C-c> "+y
+inoremap <C-v> <esc>"+pa
 
 noremap <Esc>1 :bf<CR>
 noremap <Esc>2 :bf<CR>:bn1<CR>
