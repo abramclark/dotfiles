@@ -3,7 +3,7 @@
 args=$(echo $@ | perl -pe 's/(.*?):(\d+)+:?$/+$2 $1/')
 set -- $args
 if [[ $OSTYPE == darwin* || $DISPLAY ]]; then
-    gvim --remote-tab $@
+    gvim --remote $@
 else
     vim $@
 fi
