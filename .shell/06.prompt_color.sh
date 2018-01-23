@@ -1,1 +1,1 @@
-prompt_color=$(set_color 84)
+prompt_color=$(set_color 002)

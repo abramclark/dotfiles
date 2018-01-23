@@ -82,3 +82,7 @@ alias pinggate='ping `mygate`'
 #alias open='xdg-open'
 #alias gi='grep -i'
 #alias t='type'
+
+function dns {
+  dig $@|grep -v '^$\|^;'
+}

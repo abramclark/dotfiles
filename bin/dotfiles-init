@@ -1,7 +1,7 @@
 #!/bin/sh
 cd
 
-git clone https://ithub.com/abramclark/dotfiles.git
+git clone https://github.com/abramclark/dotfiles.git
 cd dotfiles; cp -r $(dir -A) ..;  cd ..
 rm -rf dotfiles
 git config status.showuntrackedfiles no
