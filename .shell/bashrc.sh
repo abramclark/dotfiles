@@ -1,6 +1,7 @@
-function include_maybe { if [ -e $1 ]; then source $1; fi }
+function include_maybe { [ -f $1 ] && source $1; }
 include_maybe /etc/bash_completion
 include_maybe /usr/local/etc/bash_completion
+include_maybe /usr/local/share/bash-completion/bash_completion
 
 # misc stuff
 stty -ixon #disable ctrl+s locking

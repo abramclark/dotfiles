@@ -15,7 +15,6 @@ alias scpr='rsync --partial --progress --rsh=ssh'
 alias perlprint='perl -e print -e'
 alias perlsed='perl -pe' # perl version of sed
 alias perlfor='perl -ne' # pepe without the -p, but still implicitly iterates
-alias shh='ssh dev-0.thenewhive.com'
 if [[ $OSTYPE == darwin* ]]; then
     alias no='ls -G'
 else
@@ -41,13 +40,9 @@ alias mysql='mysql --no-beep --pager="less -Q"'
 alias emacs='emacs -nw'
 alias which="type -path"
 alias where="type -all"
-alias gitlog='git log --pretty=oneline|head -20|tac'
 alias mkdir='mkdir -p'
 alias t='tmux attach'
 alias top1='top -b -n 1'
-
-alias master='git checkout master'
-alias nh='bin/server_examples.py'
 
 alias ..='cd ../'
 alias ...='cd ../../'
@@ -57,8 +52,8 @@ alias ff='find|grep -i'
 
 # git aliases
 alias g='git'
-# git root dir
-# pre-submit checks
+alias glog='git log --pretty=oneline|head -20|tac'
+alias master='git checkout master'
 alias gpre="st;git diff|grep -n 'print\|!!\|bugbug\|TODO'"
 alias gm='git checkout master'
 alias gstage='git checkout staging'
@@ -84,5 +79,9 @@ alias pinggate='ping `mygate`'
 #alias t='type'
 
 function dns {
-  dig $@|grep -v '^$\|^;'
+  dig $@|grep -v '\(^$\)\|^;'
+}
+
+function x80 {
+  python -c "print('x' * 80)"
 }
