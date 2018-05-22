@@ -12,6 +12,7 @@ alias greph='grep -v /\\.'
 alias lsf='find $(pwd) -type f'
 alias today='date +%Y-%m-%d'
 alias scpr='rsync --partial --progress --rsh=ssh'
+alias sshpw='ssh -o PubkeyAuthentication=no'
 alias perlprint='perl -e print -e'
 alias perlsed='perl -pe' # perl version of sed
 alias perlfor='perl -ne' # pepe without the -p, but still implicitly iterates
