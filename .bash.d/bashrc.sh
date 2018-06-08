@@ -12,23 +12,20 @@ HISTFILESIZE=100000
 
 # vars
 export EDITOR=vim
-export PAGER='less -RF' # interpret color escapes, cat if file fits in term
+export PAGER=less
+export LESS='-R' # proper less color escape interpretation (for ipython)
 export QHOME=~/bin/q-lang/
 IFS=$(echo -e " \n	")
 
 
 ## set prompt
 
-function set_color {
-    echo -e "\033[38;05;${1}m"
-}
-
 function git_branch {
     b=$(git symbolic-ref HEAD 2> /dev/null);
     if [ $b ]; then echo -n "(${b##refs/heads/})"; fi
 }
 
-function __main__ {
+function bash_prompt_init {
     local normal=$(echo -e '\033[0;0m')
     local box_name=${HOSTNAME/.*/}
 
@@ -37,4 +34,4 @@ function __main__ {
     # show prompt in red if root
     if [ "$UID" = "0" ]; then prompt_color=$Red; fi 
 }
-__main__
+bash_prompt_init
