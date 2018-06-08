@@ -12,7 +12,7 @@ HISTFILESIZE=100000
 
 # vars
 export EDITOR=vim
-export PAGER='less -RF' color escape interpretation, cat if file smaller than term
+export PAGER='less -RF' # leave color escapes, cat if file smaller than term
 export QHOME=~/bin/q-lang/
 IFS=$(echo -e " \n	")
 
