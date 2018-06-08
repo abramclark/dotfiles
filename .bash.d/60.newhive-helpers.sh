@@ -1,6 +1,6 @@
 # find NewHive
 NEWHIVE_HOME=$HOME/newhive
-if [ ! -d $NEWHIVE_HOME ]; then NEWHIVE_HOME=/var/www/newhive; fi 
+if [ ! -d $NEWHIVE_HOME ]; then NEWHIVE_HOME=/home/newhive; fi 
 
 # aliases
 alias nh=nhrepl #TODO make a cooler top level utility?
