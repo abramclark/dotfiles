@@ -7,7 +7,7 @@ colorscheme elflord
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set formatoptions=q2
-set guifont=Menlo\ Regular:h15
+set guifont=Menlo\ Regular:h13
 set autoindent
 set nosmarttab " change indents from literal tabs to a bunch of spaces (huh?)
 set expandtab " make indents spaces not tabs

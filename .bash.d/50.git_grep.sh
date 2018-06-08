@@ -10,11 +10,11 @@ function git_grep {(
     path_match=""
     while true; do
         case "$1" in
-            -c) case=true;shift;;
+            -i) case=true;shift;;
             -o) open=true;shift;;
             -n) search_name=true;shift;;
             -f) force=true;shift;;
-            -i) filter_broken="";shift;;
+            -f) filter_broken="";shift;;
             # -a) all=true;shift;;
             -p) shift; path_match="$1"; shift;;
             *) break 2;
@@ -25,6 +25,7 @@ function git_grep {(
     if [ $case ]; then case_flag=''; fi
 
     if [ "$search_name" ]; then
+        if [ -z "$path_match" ]; then path_match="."; fi
         git ls-files "$path_match" | grep_cmd $case_flag $* > ~/.efffiles
         if [ $filter_broken ]; then
             grep_cmd -v $filter_broken ~/.efffiles > ~/.efffiles_temp
