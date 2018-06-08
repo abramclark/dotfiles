@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # hack for handling file:line-number args
 args=$(echo $@ | perl -pe 's/(.*?):(\d+)+:?$/+$2 $1/')
 set -- $args
