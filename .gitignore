@@ -1,0 +1,2 @@
+# everything is ignored with status.showuntrackedfiles, but useful for `git add`
+*.local.*
