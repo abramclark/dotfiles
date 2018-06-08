@@ -12,8 +12,7 @@ HISTFILESIZE=100000
 
 # vars
 export EDITOR=vim
-export PAGER=less
-export LESS='-R' # proper less color escape interpretation (for ipython)
+export PAGER='less -RF' # interpret color escapes, cat if file fits in term
 export QHOME=~/bin/q-lang/
 IFS=$(echo -e " \n	")
 

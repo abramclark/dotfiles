@@ -1,3 +1,6 @@
+# TODO: section and sort into at least somewhat sensible order
+
+alias sar='perl -pe' # perlish sed
 alias sqlite='python -c "import apsw;apsw.main()"'
 #alias ssh='ssh -3' # for when ssh 5.8 is installed
 alias iv=gliv
@@ -14,7 +17,6 @@ alias today='date +%Y-%m-%d'
 alias scpr='rsync --partial --progress --rsh=ssh'
 alias sshpw='ssh -o PubkeyAuthentication=no'
 alias perlprint='perl -e print -e'
-alias perlsed='perl -pe' # perl version of sed
 alias perlfor='perl -ne' # pepe without the -p, but still implicitly iterates
 if [[ $OSTYPE == darwin* ]]; then
     alias no='ls -G'
