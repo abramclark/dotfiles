@@ -79,6 +79,10 @@ noremap <D-7> 7gt
 noremap <D-8> 8gt
 noremap <D-9> 9gt
 
+nmap ; :Buffers<CR>
+nmap <Leader>t :Files<CR>
+nmap <Leader>r :Tags<CR>
+
 command! B buffers
 
 " copy number to number below then increment. lh at end fixes spurious cursor down motion
