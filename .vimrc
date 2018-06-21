@@ -80,8 +80,8 @@ noremap <D-8> 8gt
 noremap <D-9> 9gt
 
 nmap ; :Buffers<CR>
-nmap <Leader>t :Files<CR>
-nmap <Leader>r :Tags<CR>
+nmap <Leader>f :Files<CR>
+nmap <Leader>t :Tags<CR>
 
 command! B buffers
 
