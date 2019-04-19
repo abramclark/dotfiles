@@ -1,0 +1,13 @@
+[push]
+    default = simple
+[core]
+    pager = less -XF
+[alias]
+    untracked = "!git ls-files --others --exclude-standard"
+    untrackedRM = "!git ls-files --others --exclude-standard | xargs rm"
+[merge]
+    conflictstyle = diff3
+[grep]
+    lineNumber = true
+[rebase]
+    instructionFormat = %s [%an]
