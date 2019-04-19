@@ -7,7 +7,6 @@ colorscheme elflord
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set formatoptions=q2
-set guifont=Menlo\ Regular:h13
 set autoindent
 set nosmarttab " change indents from literal tabs to a bunch of spaces (huh?)
 set expandtab " make indents spaces not tabs
@@ -34,6 +33,10 @@ set gdefault " search and replace all matches by default
 set nrformats=hex " who uses octal?? 07 should increment to 08
 set guioptions-=m
 set guioptions-=T
+set guifont=Menlo\ Regular:h13
+set guicursor+=a:blinkon0
+set mouse=a
+set clipboard=unnamed
 
 let mapleader = ","
 
@@ -51,8 +54,8 @@ nnoremap <silent> <Leader>bd :Bclose<CR>
 " copy selected lines with lines joined
 vnoremap <leader>yl "+y:let @+=substitute(substitute(t, '\_s\_s\+', ' ', 'g'), '^\_s*\|\_s*$', '', 'g')<CR>
 " ctrl keys left in normal mode: j, q, ', ", .?
-vnoremap <C-c> "+y
-inoremap <C-v> <esc>"+pa
+"vnoremap <C-c> "+y
+"inoremap <C-v> <esc>"+pa " replaces insert literal key
 
 noremap <Esc>1 :bf<CR>
 noremap <Esc>2 :bf<CR>:bn1<CR>
@@ -79,7 +82,7 @@ noremap <D-7> 7gt
 noremap <D-8> 8gt
 noremap <D-9> 9gt
 
-nmap ; :Buffers<CR>
+nmap <Leader>b :Buffers<CR>
 nmap <Leader>f :Files<CR>
 nmap <Leader>t :Tags<CR>
 

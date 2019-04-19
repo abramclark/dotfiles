@@ -64,6 +64,7 @@ alias gc='git commit'
 alias gs='git status'
 alias gpp='git pull && (cd `groot`;git submodule update) && git push'
 alias gcd='cd $(groot)' # top level of current repo
+alias git-tree='git log --graph --pretty=oneline --abbrev-commit'
 # alias gbranch='git status|grep branch|awk '"'"'{print $4}'"'"
 # alias gmerge='~/bin/gitmerge.sh master `gbranch`'
 
