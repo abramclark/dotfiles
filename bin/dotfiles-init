@@ -5,11 +5,15 @@
 #   otherwise show "nothing happened" msg
 cd
 
+# TODO: move all existing paths in repo to tmp dir, with warning for each one
+mv .bash_profile /tmp/
+
 # initialize git repo
 # TODO: clone into tmp name, in case ~/dotfiles happens to exist
 git clone https://github.com/abramclark/dotfiles.git
 cd dotfiles; cp -ri $(ls -A) ..;  cd ..
 rm -rf dotfiles
+
 git config status.showuntrackedfiles no # don't track everything in ~
 
 # initialize local files
