@@ -86,6 +86,7 @@ noremap <D-9> 9gt
 nmap <Leader>b :Buffers<CR>
 nmap <Leader>f :Files<CR>
 nmap <Leader>t :Tags<CR>
+nmap <Leader>l :let @+=@% . ':' . line('.')<CR>
 
 command! B buffers
 
