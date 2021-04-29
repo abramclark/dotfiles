@@ -57,3 +57,5 @@ alias on=rerun_results
 alias oe=filepart_results
 # rerun last list, filtered through grep
 alias og=grep_results
+
+alias gitloggraph='git log --graph --pretty=oneline --abbrev-commit --color=always|less -RS'

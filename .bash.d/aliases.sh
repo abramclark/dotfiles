@@ -12,7 +12,6 @@ alias mplayercam='mplayer -vf screenshot tv://'
 #alias gi='grep -iP'
 #alias gr='grep -P'
 alias lsf='find $(pwd) -type f'
-alias today='date +%Y-%m-%d'
 alias scpr='rsync --partial --progress --rsh=ssh'
 alias sshpw='ssh -o PubkeyAuthentication=no'
 alias perlprint='perl -e print -e'
@@ -23,6 +22,9 @@ alias ll='no -l'
 alias la='no -a'
 alias pstat='tail -f /var/log/messages'
 alias now='date +"%H:%M:%S"'
+alias today='date +%Y-%m-%d'
+alias isodatetime="date '+%Y-%m-%dT%H:%M:%S'"
+alias isodatetimeutc="date -u '+%Y-%m-%dT%H:%M:%S'"
 alias vim='vim -X'
 alias rand0='rand -0'
 alias ehtml="perl -pe 's/\&/\&amp;/g; s/</\&lt;/g; s/>/\&gt;/g;'"
