@@ -11,41 +11,35 @@ alias iv=gliv
 alias mplayercam='mplayer -vf screenshot tv://'
 #alias gi='grep -iP'
 #alias gr='grep -P'
-alias greph='grep -v /\\.'
 alias lsf='find $(pwd) -type f'
 alias today='date +%Y-%m-%d'
 alias now='date +"%H:%M:%S"'
+alias datetime='date "+%Y-%m-%dT%H:%M:%S"'
+alias datetimeutc='date -u "+%Y-%m-%dT%H:%M:%S"'
 alias scpr='rsync --partial --progress --rsh=ssh'
 alias sshpw='ssh -o PubkeyAuthentication=no'
 alias perlprint='perl -e print -e'
 alias perlfor='perl -ne' # pepe without the -p, but still implicitly iterates
-if [[ $OSTYPE == darwin* ]]; then
-    alias no='ls -G'
-else
-    alias no='ls --color'
-fi
+alias grepp="perl -ne 'print if' -e"
+alias greppv="perl -ne 'print if not' -e"
 alias ll='no -l'
 alias la='no -a'
 alias pstat='tail -f /var/log/messages'
-alias vim='vim -X'
 alias rand0='rand -0'
 alias ehtml="perl -pe 's/\&/\&amp;/g; s/</\&lt;/g; s/>/\&gt;/g;'"
-alias scr='TERM=rxvt screen -dRRA -e ^o^o' # TERM=rxvt fixes MacOS + screen "woof -- woof" problem (wtf?)
-alias c='co -l' # checkout with RCS and lock for editing
 if [[ $OSTYPE == darwin* ]]; then
     alias psa=pstree
+    alias no='ls -G'
 else
     alias psa="ps -AHf"
+    alias no='ls --color'
 fi
-alias sup='svn up; svn log -r BASE:HEAD;'
-alias less='less -Q'
-alias mysql='mysql --no-beep --pager="less -Q"'
-alias emacs='emacs -nw'
 alias which="type -path"
 alias where="type -all"
 alias mkdir='mkdir -p'
-alias t='tmux attach'
+alias t='tmux -CC attach'
 alias top1='top -b -n 1'
+alias mysql='mysql --pager="less -F"'
 
 alias ..='cd ../'
 alias ...='cd ../../'
@@ -82,8 +76,16 @@ alias pinggate='ping `mygate`'
 #alias gi='grep -i'
 #alias t='type'
 
+# for historical interest
+#alias scr='TERM=rxvt screen -dRRA -e ^o^o' # TERM=rxvt fixes MacOS + screen "woof -- woof" problem (wtf?)
+#alias c='co -l' # checkout with RCS and lock for editing
+#alias sup='svn up; svn log -r BASE:HEAD;'
+#alias less='less -Q'
+#alias mysql='mysql --no-beep --pager="less -FQ"'
+#alias emacs='emacs -nw'
+
 function dns {
-  dig $@|grep -v '\(^$\)\|^;'
+  dig $"@"|grep -v '\(^$\)\|^;'
 }
 
 function x80 {
