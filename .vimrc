@@ -41,7 +41,6 @@ set clipboard=unnamed
 let mapleader = ","
 
 noremap <C-s> :w<CR>
-noremap <C-x> \r<CR>\e
 noremap <C-p> :bp<CR>
 noremap <C-n> :bn<CR>
 noremap <C-h> :noh<CR>
