@@ -19,7 +19,7 @@ alias datetimeutc='date -u "+%Y-%m-%dT%H:%M:%S"'
 alias scpr='rsync --partial --progress --rsh=ssh'
 alias sshpw='ssh -o PubkeyAuthentication=no'
 alias perlprint='perl -e print -e'
-alias perlfor='perl -ne' # pepe without the -p, but still implicitly iterates
+alias perlfor='perl -ne' # iterate expr over lines of stdin
 alias grepp="perl -ne 'print if' -e"
 alias greppv="perl -ne 'print if not' -e"
 alias ll='no -l'
@@ -27,6 +27,14 @@ alias la='no -a'
 alias pstat='tail -f /var/log/messages'
 alias rand0='rand -0'
 alias ehtml="perl -pe 's/\&/\&amp;/g; s/</\&lt;/g; s/>/\&gt;/g;'"
+alias which="type -path"
+alias where="type -all"
+alias mkdir='mkdir -p'
+alias t='tmux -CC attach'
+alias top1='top -b -n 1'
+alias mysql='mysql --pager="less -F"'
+alias fcut='sed -E "s/ +/\t/g"|cut -f' # grab ${1}th column separated by spaces or tab
+
 if [[ $OSTYPE == darwin* ]]; then
     alias psa=pstree
     alias no='ls -G'
@@ -34,12 +42,6 @@ else
     alias psa="ps -AHf"
     alias no='ls --color'
 fi
-alias which="type -path"
-alias where="type -all"
-alias mkdir='mkdir -p'
-alias t='tmux -CC attach'
-alias top1='top -b -n 1'
-alias mysql='mysql --pager="less -F"'
 
 alias ..='cd ../'
 alias ...='cd ../../'

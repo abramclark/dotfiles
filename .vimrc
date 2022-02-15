@@ -41,6 +41,9 @@ set clipboard=unnamed
 
 let mapleader = ","
 
+" prevent directory listing from persisting in buffer list
+let g:netrw_fastbrowse = 0
+
 noremap <C-s> :w<CR>
 noremap <C-p> :bp<CR>
 noremap <C-n> :bn<CR>
