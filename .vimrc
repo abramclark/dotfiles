@@ -14,7 +14,7 @@ set shiftwidth=4 " how many spaces make up a smarttab
 set tabstop=4 " set the display width of tabs (just in case of a literal tab)
 set visualbell t_vb=
 set novisualbell
-set textwidth=70
+set textwidth=90
 set hlsearch
 set modeline
 set ignorecase
@@ -89,6 +89,7 @@ nmap <Leader>b :Buffers<CR>
 nmap <Leader>f :Files<CR>
 nmap <Leader>t :Tags<CR>
 nmap <Leader>l :let @+=@% . ':' . line('.')<CR>
+nmap <Leader>x oimport ipdb; ipdb.set_trace()<Esc>
 
 command! B buffers
 
