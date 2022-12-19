@@ -32,16 +32,7 @@ alias where="type -all"
 alias mkdir='mkdir -p'
 alias t='tmux -CC attach'
 alias top1='top -b -n 1'
-alias mysql='mysql --pager="less -F"'
 alias fcut='sed -E "s/ +/\t/g"|cut -f' # grab ${1}th column separated by spaces or tab
-
-if [[ $OSTYPE == darwin* ]]; then
-    alias psa=pstree
-    alias no='ls -G'
-else
-    alias psa="ps -AHf"
-    alias no='ls --color'
-fi
 
 alias ..='cd ../'
 alias ...='cd ../../'
@@ -49,26 +40,20 @@ alias ....='cd ../../../'
 alias .....='cd ../../../../'
 alias ff='find|grep -i'
 
-# git aliases
-alias g='git'
-alias glog='git log --pretty=oneline|head -20|tac'
-alias master='git checkout master'
-alias gpre="st;git diff|grep -n 'print\|!!\|bugbug\|TODO'"
-alias gm='git checkout master'
-alias gstage='git checkout staging'
-alias gc='git commit'
-alias gs='git status'
-alias gpp='git pull && (cd `groot`;git submodule update) && git push'
-alias gcd='cd $(groot)' # top level of current repo
-alias git-tree='git log --graph --pretty=oneline --abbrev-commit'
-# alias gbranch='git status|grep branch|awk '"'"'{print $4}'"'"
-# alias gmerge='~/bin/gitmerge.sh master `gbranch`'
-
 # diagnostics
 alias ping8='ping 8.8.8.8'
 alias myip="ifconfig | grep inet.addr | grep -v 127.0.0.1 | awk -F: '{print $2}' | awk '{print $1}'"
 alias mygate="route -n | grep ^0.0.0.0 | awk '{print $2}'"
 alias pinggate='ping `mygate`'
+
+if [[ $OSTYPE == darwin* ]]; then
+    alias psa=pstree
+    alias no='ls -G'
+    alias brewinst='HOMEBREW_NO_AUTO_UPDATE=1 brew install'
+else
+    alias psa="ps -AHf"
+    alias no='ls --color'
+fi
 
 # basic linux utils
 #alias m='less -R'
@@ -91,5 +76,5 @@ function dns {
 }
 
 function x80 {
-  python -c "print('x' * 80)"
+  python -c "print('x' * 105)"
 }
