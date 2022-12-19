@@ -27,13 +27,6 @@ alias la='no -a'
 alias pstat='tail -f /var/log/messages'
 alias rand0='rand -0'
 alias ehtml="perl -pe 's/\&/\&amp;/g; s/</\&lt;/g; s/>/\&gt;/g;'"
-if [[ $OSTYPE == darwin* ]]; then
-    alias psa=pstree
-    alias no='ls -G'
-else
-    alias psa="ps -AHf"
-    alias no='ls --color'
-fi
 alias which="type -path"
 alias where="type -all"
 alias mkdir='mkdir -p'
@@ -58,7 +51,7 @@ alias gc='git commit'
 alias gs='git status'
 alias gpp='git pull && (cd `groot`;git submodule update) && git push'
 alias gcd='cd $(groot)' # top level of current repo
-alias git-tree='git log --graph --pretty=oneline --abbrev-commit'
+alias gittree='git log --all --decorate --oneline --graph'
 # alias gbranch='git status|grep branch|awk '"'"'{print $4}'"'"
 # alias gmerge='~/bin/gitmerge.sh master `gbranch`'
 
@@ -67,6 +60,15 @@ alias ping8='ping 8.8.8.8'
 alias myip="ifconfig | grep inet.addr | grep -v 127.0.0.1 | awk -F: '{print $2}' | awk '{print $1}'"
 alias mygate="route -n | grep ^0.0.0.0 | awk '{print $2}'"
 alias pinggate='ping `mygate`'
+
+if [[ $OSTYPE == darwin* ]]; then
+    alias psa=pstree
+    alias no='ls -G'
+    alias brewinst='HOMEBREW_NO_AUTO_UPDATE=1 brew install'
+else
+    alias psa="ps -AHf"
+    alias no='ls --color'
+fi
 
 # basic linux utils
 #alias m='less -R'

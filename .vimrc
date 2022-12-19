@@ -14,7 +14,7 @@ set shiftwidth=4 " how many spaces make up a smarttab
 set tabstop=4 " set the display width of tabs (just in case of a literal tab)
 set visualbell t_vb=
 set novisualbell
-set textwidth=70
+set textwidth=90
 set hlsearch
 set modeline
 set ignorecase
@@ -37,9 +37,12 @@ set guioptions-=T
 set guifont=Menlo\ Regular:h13
 set guicursor+=a:blinkon0
 set mouse=a
-set clipboard=unnamed
 
 let mapleader = ","
+
+" copy selected lines with lines joined
+vnoremap <leader>yl "+y:let @+=substitute(substitute(t, '\_s\_s\+', ' ', 'g'), '^\_s*\|\_s*$', '', 'g')<CR>
+vnoremap <C-c> "+y
 
 noremap <C-s> :w<CR>
 noremap <C-p> :bp<CR>
@@ -49,13 +52,15 @@ noremap <F8> :TagbarToggle<CR>
 inoremap <C-b> <Left>
 inoremap <C-f> <Right>
 nnoremap <C-k> :bd<CR>
-" close current buffer without touching windows
+" close current buffer without touching windows with bclose plugin
 nnoremap <silent> <Leader>bd :Bclose<CR>
-" copy selected lines with lines joined
-vnoremap <leader>yl "+y:let @+=substitute(substitute(t, '\_s\_s\+', ' ', 'g'), '^\_s*\|\_s*$', '', 'g')<CR>
-" ctrl keys left in normal mode: j, q, ', ", .?
-"vnoremap <C-c> "+y
-"inoremap <C-v> <esc>"+pa " replaces insert literal key
+" ctrl keys left in normal mode: j, q, ', ., comma, /
+"inoremap <C-S-v> <C-v> " move insert literal keystroke to Ctrl+Shift+v
+"inoremap <C-v> <esc>"+pa " paste
+
+"# macros
+noremap <Leader>x Oimport ipdb; ipdb.set_trace()<Esc>
+noremap <Leader>d a<C-r>=system('today')[0:-2]<Esc>
 
 noremap <Esc>1 :bf<CR>
 noremap <Esc>2 :bf<CR>:bn1<CR>
