@@ -38,6 +38,7 @@ set guifont=Menlo\ Regular:h13
 set guicursor+=a:blinkon0
 set mouse=a
 
+let g:netrw_fastbrowse = 0 " prevent directory listing from persisting in buffer list
 let mapleader = ","
 
 " copy selected lines with lines joined
@@ -91,6 +92,7 @@ nmap <Leader>b :Buffers<CR>
 nmap <Leader>f :Files<CR>
 nmap <Leader>t :Tags<CR>
 nmap <Leader>l :let @+=@% . ':' . line('.')<CR>
+nmap <Leader>x oimport ipdb; ipdb.set_trace()<Esc>
 
 command! B buffers
 

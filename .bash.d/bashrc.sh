@@ -2,6 +2,8 @@ function source_maybe { [ -f $1 ] && source $1; }
 source_maybe /etc/bash_completion
 source_maybe /usr/local/etc/bash_completion
 source_maybe /usr/local/share/bash-completion/bash_completion
+source_maybe /usr/local/etc/profile.d/bash_completion.sh
+source_maybe /Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash
 source_maybe ~/.ssh/agent
 
 # misc stuff

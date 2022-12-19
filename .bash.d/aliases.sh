@@ -19,7 +19,7 @@ alias datetimeutc='date -u "+%Y-%m-%dT%H:%M:%S"'
 alias scpr='rsync --partial --progress --rsh=ssh'
 alias sshpw='ssh -o PubkeyAuthentication=no'
 alias perlprint='perl -e print -e'
-alias perlfor='perl -ne' # pepe without the -p, but still implicitly iterates
+alias perlfor='perl -ne' # iterate expr over lines of stdin
 alias grepp="perl -ne 'print if' -e"
 alias greppv="perl -ne 'print if not' -e"
 alias ll='no -l'
@@ -32,28 +32,13 @@ alias where="type -all"
 alias mkdir='mkdir -p'
 alias t='tmux -CC attach'
 alias top1='top -b -n 1'
-alias mysql='mysql --pager="less -F"'
+alias fcut='sed -E "s/ +/\t/g"|cut -f' # grab ${1}th column separated by spaces or tab
 
 alias ..='cd ../'
 alias ...='cd ../../'
 alias ....='cd ../../../'
 alias .....='cd ../../../../'
 alias ff='find|grep -i'
-
-# git aliases
-alias g='git'
-alias glog='git log --pretty=oneline|head -20|tac'
-alias master='git checkout master'
-alias gpre="st;git diff|grep -n 'print\|!!\|bugbug\|TODO'"
-alias gm='git checkout master'
-alias gstage='git checkout staging'
-alias gc='git commit'
-alias gs='git status'
-alias gpp='git pull && (cd `groot`;git submodule update) && git push'
-alias gcd='cd $(groot)' # top level of current repo
-alias gittree='git log --all --decorate --oneline --graph'
-# alias gbranch='git status|grep branch|awk '"'"'{print $4}'"'"
-# alias gmerge='~/bin/gitmerge.sh master `gbranch`'
 
 # diagnostics
 alias ping8='ping 8.8.8.8'
@@ -91,5 +76,5 @@ function dns {
 }
 
 function x80 {
-  python -c "print('x' * 80)"
+  python -c "print('x' * 105)"
 }

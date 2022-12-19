@@ -58,4 +58,16 @@ alias oe=filepart_results
 # rerun last list, filtered through grep
 alias og=grep_results
 
+alias g='git'
+alias glog='git log --pretty=oneline|head -20|tac'
 alias gitloggraph='git log --graph --pretty=oneline --abbrev-commit --color=always|less -RS'
+alias gpre="st;git diff|grep -n 'print\|!!\|bugbug\|TODO'"
+alias gm='git checkout master'
+alias gstage='git checkout staging'
+alias gc='git commit'
+alias gs='git status'
+alias gpp='git pull && (cd `groot`;git submodule update) && git push'
+alias gcd='cd $(groot)' # top level of current repo
+alias gittree='git log --all --decorate --oneline --graph'
+# alias gbranch='git status|grep branch|awk '"'"'{print $4}'"'"
+# alias gmerge='~/bin/gitmerge.sh master `gbranch`'
