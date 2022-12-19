@@ -33,8 +33,7 @@ function git_grep {(
         fi
         # echo "git ls-files \"$path_match\" | grep_cmd $case_flag $* > ~/.efffiles"
     else
-        if [ ! -n "$path_match" ]; then path_match="\*"; fi
-        git grep $case_flag -n --no-color $* -- "$path_match" | perl -pe 's/^(.*?:\d+):/$1 /' > ~/.efffiles
+        git grep $case_flag -n --no-color $* -- $path_match | perl -pe 's/^(.*?:\d+):/$1 /' > ~/.efffiles
         if [ $filter_broken ]; then
             grep_cmd -v $filter_broken ~/.efffiles > ~/.efffiles_temp
             mv -f ~/.efffiles_temp ~/.efffiles
