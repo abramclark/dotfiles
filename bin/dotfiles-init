@@ -3,7 +3,7 @@
 # TODO: fix this; make idempotent - but with warning:
 #   show override warning if new version is different
 #   otherwise show "nothing happened" msg
-cd
+cd || exit
 
 # TODO: move all existing paths in repo to tmp dir, with warning for each one
 mv .bash_profile /tmp/
@@ -11,10 +11,9 @@ mv .bash_profile /tmp/
 # initialize git repo
 # TODO: clone into tmp name, in case ~/dotfiles happens to exist
 git clone https://github.com/abramclark/dotfiles.git
-cd dotfiles; cp -ri $(ls -A) ..;  cd ..
+git config status.showuntrackedfiles no # assume anything not explictly tracked is not in repo
+cd dotfiles && cp -ri "$(ls -A)" .. && cd ..
 rm -rf dotfiles
-
-git config status.showuntrackedfiles no # don't track everything in ~
 
 # initialize local files
 f=.bash.d/92.prompt-color.local.sh
@@ -29,3 +28,4 @@ vim -c PlugInstall
 
 # cleanup
 rm README.md
+git update-index --assume-unchanged README.md
