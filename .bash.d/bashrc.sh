@@ -6,6 +6,8 @@ source_maybe /usr/local/etc/profile.d/bash_completion.sh
 source_maybe /Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash
 source_maybe ~/.ssh/agent
 
+export PATH="${HOME}/bin:${PATH}";
+
 # misc stuff
 stty -ixon #disable ctrl+s locking
 #duplicate commands and those prepended with a space are not logged
