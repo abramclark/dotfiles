@@ -11,7 +11,7 @@ test -w .bash_profile && mv .bash_profile /tmp/
 # initialize git repo
 # TODO: clone into tmp name, in case ~/dotfiles happens to exist
 git clone https://github.com/abramclark/dotfiles.git
-cd dotfiles && cp -ri "$(ls -A)" .. && cd ..
+cd dotfiles && cp -ri $(ls -A) .. && cd ..
 rm -rf dotfiles
 
 # initialize local files
