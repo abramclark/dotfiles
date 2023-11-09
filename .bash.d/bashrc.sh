@@ -20,6 +20,9 @@ export PAGER='less -RF' # leave color escapes, cat if file smaller than term
 export QHOME=~/bin/q-lang/
 IFS=$(echo -e " \n	")
 
+# update and read cmd history immediately
+shopt -s histappend                      # append to history, don't overwrite it
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 ## set prompt
 
